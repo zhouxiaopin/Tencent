@@ -53,6 +53,7 @@ class TencentSpider(scrapy.Spider):
         #     url = self.baseURL + str(self.offset)
         #     yield scrapy.Request(url, callback=self.parse)
 
+
         # 第二种写法：直接从response获取需要爬取的链接，并发送请求，直到链接全部提取完
         if not len(response.xpath("//a[@class='noactive' and @id='next']")):
             url = response.xpath("//a[@id='next']/@href").extract()[0]
